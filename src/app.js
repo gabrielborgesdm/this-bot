@@ -61,4 +61,4 @@ client.on('message', message => {
 
 
 
-client.login('NzU2MzI2NTQ1OTUzNjUyODMw.X2QN_A.hiwbOa8Q2RE2Otm7J-83tbnY554');
+client.login('');
