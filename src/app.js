@@ -3,7 +3,7 @@ require('dotenv').config()
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const prefix = "fatties"
+const prefix = "/"
 const allowedChannelIds = ["754545328274931835"]
 const commandsList = [
     {
