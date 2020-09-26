@@ -5,7 +5,12 @@ const allowedChannels = process.env.allowed_channel_ids
 export function getCommandAndParamters(commandString){
     commandString = commandString.replace(prefix, "")
     commandString = commandString.toLowerCase()
-    let commandAndParamters = commandString.split(" ").slice(1)
+    let commandAndParamters
+    if(commandString.charAt(0) === " ") {
+        commandAndParamters = commandString.split(" ").slice(1)
+    } else {
+        commandAndParamters = commandString.split(" ").slice(0)
+    }
     return commandAndParamters
 }
 
@@ -14,4 +19,11 @@ export function getAllowedChannels(){
     let allowedChannelsArray = allowedChannelsArray.split(" ")
     return allowedChannelsArray
     
+}
+
+export function stringifyParamters(paramtersArray){
+    return paramtersArray.reduce((previous, next)=>{
+        previous += ` ${next}`
+        return previous
+    }, "")
 }

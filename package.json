@@ -8,7 +8,8 @@
     "axios": "^0.20.0",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "nodemw": "^0.13.0"
   },
   "scripts": {
     "start": "nodemon -r dotenv/config.js --exec babel-node ./src/app.js"

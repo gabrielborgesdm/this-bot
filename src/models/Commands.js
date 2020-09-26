@@ -1,5 +1,6 @@
 import help from "./commands/Help"
-import { getAGif } from "./commands/Picture"
+import { getAGif, kiss, hug } from "./commands/Picture"
+import { getArticle } from "./commands/Wikipedia"
 import translate from "./commands/Translate"
 
 const prefix = process.env.prefix
@@ -16,10 +17,20 @@ export const commands = [
         description: "Give a random gif according to search terms",
         method: getAGif
     },
+
+
     {
-        command: "translate",
-        description: "Translates a given text",
-        method: translate
+        command: "kiss",
+        params: "[@person_nickname]",
+        description: "Kisses someone <3",
+        method: kiss
+    },
+    
+    {
+        command: "hug",
+        params: "[@person_nickname]",
+        description: "hugs someone <3",
+        method: hug
     },
 ]
 

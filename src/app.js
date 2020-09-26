@@ -2,7 +2,7 @@
 import Discord from 'discord.js'
 import { executeCommand } from "./models/Commands"
 import { getCommandAndParamters } from "./models/Validation"
-import { checkShouldStop, checkIsntAllowed }  from "./models/Permissions"
+import { checkShouldStop }  from "./models/Permissions"
 
 const client = new Discord.Client()
 const token = process.env.client_token
