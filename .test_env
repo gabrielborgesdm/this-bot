@@ -1,0 +1,3 @@
+client_token=[discord bot client token]
+prefix=[bot prefix]
+allowedChannels=[channels Id's separated by space]
