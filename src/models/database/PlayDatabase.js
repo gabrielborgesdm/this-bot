@@ -4,17 +4,23 @@ const playDB = new PouchDB('play')
 
 const settings = {
     _id: "settings",
-    volume: 0.2
+    volume: 0.1
 }
 
 export async function getVolume(){
     let volume = settings.volume
     let response = await getPlaySettings()
     if(response && response.volume){
-        console.log("volume", response.volume)
         volume =  response.volume
     }
     return volume
+}
+
+export async function updateVolume(volume) {
+    settings.volume = volume
+    let checkSuccess = await updatePlaySettings(settings)
+    
+    return checkSuccess ? true : false
 }
 
 async function getPlaySettings(){
@@ -27,7 +33,6 @@ async function getPlaySettings(){
 
     if(!response) {
         response = settings
-        console.log("alo")
         await createPlaySettings(settings)
     }
 
@@ -44,15 +49,18 @@ async function createPlaySettings(settings){
     return response
 }
 
-export async function updateVolume(text) {
-    var todo = {
-      _id: new Date().toISOString(),
-      title: text,
-      completed: false
-    }
-    db.put(todo, function callback(err, result) {
-      if (!err) {
-        console.log('Successfully posted a todo!')
-      }
+async function updatePlaySettings(newSettings){
+    let status = false
+    await playDB.get('settings').then(function(doc) {
+        return playDB.put({
+            ...newSettings,
+            _rev: doc._rev,
+        })
+    }).then(function(response) {
+        status = response
+    }).catch(function (err) {
+        console.log(err)
+        status = false
     })
+    return status
 }

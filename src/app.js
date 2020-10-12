@@ -8,7 +8,7 @@ const client = new Discord.Client()
 const token = process.env.client_token
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}!`)
 })
 
 client.on('message', message => {  
@@ -17,5 +17,6 @@ client.on('message', message => {
     executeCommand(client, message, commandAndParamters) 
   
 })
+
 
 client.login(token) 

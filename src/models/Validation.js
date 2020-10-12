@@ -4,7 +4,6 @@ const allowedChannels = process.env.allowed_channel_ids
 
 export function getCommandAndParamters(commandString){
     commandString = commandString.replace(prefix, "")
-    commandString = commandString.toLowerCase()
     let commandAndParamters
     if(commandString.charAt(0) === " ") {
         commandAndParamters = commandString.split(" ").slice(1)
@@ -26,4 +25,14 @@ export function stringifyParamters(paramtersArray){
         previous += ` ${next}`
         return previous
     }, "")
+}
+
+export function isValidUrl(string) {
+    try {
+      new URL(string)
+    } catch (_) {
+      return false; 
+    }
+  
+    return true
 }

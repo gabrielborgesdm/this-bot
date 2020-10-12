@@ -1,6 +1,6 @@
 import help from "./commands/Help"
 import { getAGif, kiss, hug } from "./commands/Picture"
-import { playYoutube, stopYoutube } from "./commands/Play"
+import { playYoutube, stopYoutube, changeVolume, pauseYoutube, resumeYoutube } from "./commands/Play"
 
 export const commands = [
     {
@@ -11,13 +11,33 @@ export const commands = [
 
     {
         command: "play",
+        params: "[url: youtube url]",
         description: "it plays a youtube url",
         method: playYoutube
     },
     
     {
+        command: "volume",
+        params: "[volume: between 0 and 1]",
+        description: "Changes the Bot's music Volume",
+        method: changeVolume
+    },
+
+    {
+        command: "pause",
+        description: "it pauses the current song",
+        method: pauseYoutube
+    },
+
+    {
+        command: "resume",
+        description: "it resumes the current song",
+        method: resumeYoutube
+    },
+    
+    {
         command: "stop",
-        description: "it stops playing music",
+        description: "Stops playing music",
         method: stopYoutube
     },
 
