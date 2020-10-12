@@ -1,9 +1,6 @@
 import help from "./commands/Help"
 import { getAGif, kiss, hug } from "./commands/Picture"
-import { getArticle } from "./commands/Wikipedia"
-import translate from "./commands/Translate"
-
-const prefix = process.env.prefix
+import { playYoutube, stopYoutube } from "./commands/Play"
 
 export const commands = [
     {
@@ -11,6 +8,19 @@ export const commands = [
         description: "List all the commands availables",
         method: help
     },
+
+    {
+        command: "play",
+        description: "it plays a youtube url",
+        method: playYoutube
+    },
+    
+    {
+        command: "stop",
+        description: "it stops playing music",
+        method: stopYoutube
+    },
+
     {
         command: "gif",
         params: "[term1] [term2] [...]",
@@ -43,6 +53,7 @@ export function executeCommand(client, message, commandAndParamters){
     }
 
     let command = getCommand(commandAndParamters[0])
+    console.log(command)
     if(command){
         command(params)
     } else {
