@@ -1,6 +1,0 @@
-client_token=[discord bot client token]
-prefix=[bot prefix]
-allowedChannels=[channels Id's separated by space]
-giphy_api_key=[giphy api key]
-giphy_api_url=api.giphy.com/v1/gifs/search
-youtube_api_url=https://www.googleapis.com/youtube/v3/search

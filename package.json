@@ -14,8 +14,8 @@
     "nodemon": "^2.0.4",
     "nodemw": "^0.13.0",
     "pouchdb": "^7.2.2",
-    "ytdl-core": "^3.3.0",
-    "ytdl-core-discord": "^1.2.3"
+    "ytdl-core": "^4.0.4",
+    "ytdl-core-discord": "^1.2.4"
   },
   "scripts": {
     "start": "nodemon -r dotenv/config.js --exec babel-node ./src/app.js"

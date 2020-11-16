@@ -4,7 +4,7 @@ import api from "../../services/Api"
 
 const giphy_api_key = process.env.giphy_api_key
 const giphy_api_url = process.env.giphy_api_url
-
+var lastGifURL = ""
 
 
 export async function getAGif({message, commandAndParamters}) {
@@ -17,8 +17,11 @@ async function getRandomSearchedGif(searchString){
     let gifs = await searchGifs(searchString)
     let gif = null
     if(gifs && gifs.length){
-        let random = Math.floor((Math.random() * gifs.length) + 1)
-        gif = gifs[random].url
+        do{
+            let random = Math.floor((Math.random() * gifs.length) + 1)
+            gif = gifs[random].url
+        } while(gif === lastGifURL)
+        lastGifURL = gif 
     }
     return gif
 }
@@ -50,10 +53,14 @@ async function executeGifAction(message, searchTerms, actionVerb){
     }
 }
 
-export function kiss({message}) {
-    executeGifAction(message, "kiss", "kissed")   
+export function kick({message}) {
+    executeGifAction(message, "kick in nuts", "kicked in the nuts")   
 }
 
 export function hug({message}) {
     executeGifAction(message, "hug", "hugged")   
+}
+
+export function nuts({message}) {
+    executeGifAction(message, "kick", "kicked")   
 }

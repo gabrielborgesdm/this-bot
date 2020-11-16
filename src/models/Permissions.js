@@ -13,6 +13,7 @@ export function checkHasntPrefix(message) {
 export function checkIsntAllowed(message) {
     let allowedChannelsArray = getAllowedChannels()
     let channel = message.channel.id
+    if(allowedChannelsArray.indexOf("all") !== -1) return false
     return allowedChannelsArray.indexOf(channel) === -1 ? true : false
 }
 

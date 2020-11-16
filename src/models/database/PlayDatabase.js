@@ -60,7 +60,9 @@ async function updatePlaySettings(newSettings){
         status = response
     }).catch(function (err) {
         console.log(err)
-        status = false
     })
+    if(!status){
+        status = await createPlaySettings({...settings, ...newSettings})
+    }
     return status
 }

@@ -1,4 +1,4 @@
-import { commands } from "../Commands"
+import commands from "./commandsList"
 
 const prefix = process.env.prefix
 
